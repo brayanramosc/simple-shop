@@ -6,11 +6,12 @@ import { provideAnimationsAsync } from "@angular/platform-browser/animations/asy
 
 import { HomePageComponent } from "./pages/home-page/home-page.component";
 import { AppComponent } from "./app.component";
+import { ProductsApiService } from "./services/products-api.service";
 
 @NgModule({
     declarations: [AppComponent],
     imports: [BrowserModule, BrowserAnimationsModule, HttpClientModule, HomePageComponent],
-    providers: [provideAnimationsAsync()],
+    providers: [provideAnimationsAsync(), ProductsApiService],
     bootstrap: [AppComponent]
 })
 

@@ -3,8 +3,8 @@
         <span>Simple Shop</span>
         <span class="toolbar__spacer"></span>
 
-        <button mat-icon-button class="favorite-icon">
-            <mat-icon matBadgeColor="accent" aria-hidden="false">
+        <button mat-icon-button class="favorite-icon" (click)="drawer.toggle()">
+            <mat-icon [matBadge]="count" matBadgeColor="accent" aria-hidden="false">
                 shopping_cart
             </mat-icon>
         </button>
@@ -18,10 +18,9 @@
         <mat-drawer-content class="drawer-container__content">
             <h1>Lista de productos</h1>
             <div class="products">
-                <app-product />
-                <app-product />
-                <app-product />
-                <app-product />
+                @for (product of products; track product.id) {
+                    <app-product [product]="product" />
+                }
             </div>
         </mat-drawer-content>
     </mat-drawer-container>
